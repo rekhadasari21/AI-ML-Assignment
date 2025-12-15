@@ -10,7 +10,7 @@ def home():
         "status":"success"
     }),200
 
-# POST API Endpoint: Square a number
+# POST API Endpoint:Square a number
 @app.route('/square',methods=['POST'])
 def square_number():
     try:
@@ -18,19 +18,19 @@ def square_number():
         
         # Error Handling:Check if input exists
         if not data or 'number' not in data:
-            return jsonify({"error": "Missing 'number' field"}),400
+            return jsonify({"error":"Missing 'number' field"}),400
             
-        number = data['number']
+        number=data['number']
         
         # Error Handling: Validate data type
-        if not isinstance(number, (int, float)):
+        if not isinstance(number,(int,float)):
             return jsonify({"error": "Input must be a number"}),400
 
         result=number**2
         return jsonify({
-            "input": number, 
-            "result": result, 
-            "status": "success"
+            "input":number, 
+            "result":result, 
+            "status":"success"
         }),200
         
     except Exception as e:
